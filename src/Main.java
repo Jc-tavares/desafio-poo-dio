@@ -1,17 +1,69 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import br.com.dio.desafio.dominio.*;
+
+import java.time.LocalDate;
+
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Curso curso1 = new Curso();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        curso1.setTitulo("Curso Java");
+        curso1.setDescricao("Curso de Java");
+        curso1.setCargaHoraria(8);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        Curso curso2 = new Curso();
+        curso2.setTitulo("Curso Javascript");
+        curso2.setDescricao("Curso de Js");
+        curso2.setCargaHoraria(4);
+
+        Conteudo conteudo = new Curso();
+
+
+        Mentoria mentoria = new Mentoria();
+        mentoria.setTitulo("Mentoria de Java");
+        mentoria.setDescricao("Descrição mentoria Java");
+        mentoria.setData(LocalDate.now());
+
+
+        /*System.out.println(curso1);
+        System.out.println(curso2);
+        System.out.println(mentoria);*/
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descricao Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devCamila = new Dev();
+        devCamila.setNome("Camila");
+        devCamila.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos inscritos Camila: " + devCamila.getConteudosInscritos());
+        System.out.println("Agora iremos progredir para ver o que ocorre!");
+        devCamila.progredir();
+        devCamila.progredir();
+        System.out.println("Conteudos inscritos Camila: " + devCamila.getConteudosInscritos());
+        System.out.println("Conteudos concluidos Camila: " + devCamila.getConteudosConcluidos());
+        System.out.println("Xp: " + devCamila.calcularTotalXp());
+
+
+        System.out.println("-------------");
+
+        Dev devJoao = new Dev();
+        devJoao.setNome("Joao");
+        devJoao.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos inscritos Joao: " + devJoao.getConteudosInscritos());
+        System.out.println("Agora iremos progredir para ver o que ocorre!");
+        devJoao.progredir();
+        devJoao.progredir();
+        devJoao.progredir();
+        System.out.println("Conteudos inscritos Joao: " + devJoao.getConteudosInscritos());
+        System.out.println("Conteudos concluidos Joao: " + devJoao.getConteudosConcluidos());
+        System.out.println("Xp: " + devJoao.calcularTotalXp());
+
+
+
     }
 }
+
